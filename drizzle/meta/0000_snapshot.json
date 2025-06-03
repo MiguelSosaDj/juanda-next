@@ -1,0 +1,1262 @@
+{
+  "id": "6d4d41f6-3b6f-451b-8d4d-e5f11ba1200f",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.alumno": {
+      "name": "alumno",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "direccion": {
+          "name": "direccion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gimnasio_id": {
+          "name": "gimnasio_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.bajo_peso_info": {
+      "name": "bajo_peso_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_info_id": {
+          "name": "base_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_saludable": {
+          "name": "imc_saludable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_pregestacional_saludable": {
+          "name": "peso_pregestacional_saludable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_semana": {
+          "name": "gramos_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_1_trimestre": {
+          "name": "ganancia_1_trimestre",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_gramos": {
+          "name": "ganancia_2y3_trimestre_gramos",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_kg": {
+          "name": "ganancia_2y3_trimestre_kg",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_total_embarazo": {
+          "name": "peso_total_embarazo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_final": {
+          "name": "peso_final",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_peso_embarazo": {
+          "name": "ganancia_peso_embarazo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_peso_clasificacion": {
+          "name": "ganancia_peso_clasificacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_primer_trimestre": {
+          "name": "ganancia_primer_trimestre",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_gsem": {
+          "name": "ganancia_2y3_trimestre_gsem",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_total_embarazo_titulo4": {
+          "name": "peso_total_embarazo_titulo4",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_semana_40": {
+          "name": "imc_semana_40",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_tipo": {
+          "name": "ganancia_tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gano": {
+          "name": "gano",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "debio_ganar": {
+          "name": "debio_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_a_ganar": {
+          "name": "peso_a_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "semanas_faltantes": {
+          "name": "semanas_faltantes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_por_semana": {
+          "name": "gramos_por_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clasificacion_gramos": {
+          "name": "clasificacion_gramos",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tasa_metabolica": {
+          "name": "tasa_metabolica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "factor_actividad_fisica": {
+          "name": "factor_actividad_fisica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requerimiento_energia_total": {
+          "name": "requerimiento_energia_total",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "adicion_gestante": {
+          "name": "adicion_gestante",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_energia_adicion": {
+          "name": "total_energia_adicion",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1g_dia": {
+          "name": "metodo_1g_dia",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1_kcal": {
+          "name": "metodo_1_kcal",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1_amdr": {
+          "name": "metodo_1_amdr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2g_dia": {
+          "name": "metodo_2g_dia",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2_kcal": {
+          "name": "metodo_2_kcal",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2_amdr": {
+          "name": "metodo_2_amdr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bajo_peso_info_base_info_id_unique": {
+          "name": "bajo_peso_info_base_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.base_user_info": {
+      "name": "base_user_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "gimnasio_id": {
+          "name": "gimnasio_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "identificacion": {
+          "name": "identificacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "edad": {
+          "name": "edad",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estatura": {
+          "name": "estatura",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.entrenamiento": {
+      "name": "entrenamiento",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "alumno_id": {
+          "name": "alumno_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "semana": {
+          "name": "semana",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "peso": {
+          "name": "peso",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tipo_entrenamiento": {
+          "name": "tipo_entrenamiento",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "altura": {
+          "name": "altura",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.gemelar_info": {
+      "name": "gemelar_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_info_id": {
+          "name": "base_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_semana": {
+          "name": "gramos_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_1_trimestre": {
+          "name": "ganancia_1_trimestre",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_gramos": {
+          "name": "ganancia_2y3_trimestre_gramos",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_kg": {
+          "name": "ganancia_2y3_trimestre_kg",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_total_embarazo": {
+          "name": "peso_total_embarazo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_semana_40": {
+          "name": "imc_semana_40",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gano": {
+          "name": "gano",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "debio_ganar": {
+          "name": "debio_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_a_ganar": {
+          "name": "peso_a_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "semanas_faltantes": {
+          "name": "semanas_faltantes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_por_semana": {
+          "name": "gramos_por_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clasificacion_gramos": {
+          "name": "clasificacion_gramos",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "gemelar_info_base_info_id_unique": {
+          "name": "gemelar_info_base_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.gestante_info": {
+      "name": "gestante_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_user_info_id": {
+          "name": "base_user_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seleccion_multiple": {
+          "name": "seleccion_multiple",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "semana_gestacion": {
+          "name": "semana_gestacion",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_actual": {
+          "name": "peso_actual",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_pregestacional": {
+          "name": "peso_pregestacional",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_pregestacional": {
+          "name": "imc_pregestacional",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_gestacional": {
+          "name": "imc_gestacional",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_pregestacional_cat": {
+          "name": "imc_pregestacional_cat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "gestante_info_base_user_info_id_unique": {
+          "name": "gestante_info_base_user_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_user_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.gimnasio": {
+      "name": "gimnasio",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "direccion": {
+          "name": "direccion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.lactante_info": {
+      "name": "lactante_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_user_info_id": {
+          "name": "base_user_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_actual": {
+          "name": "peso_actual",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_pregestacional": {
+          "name": "peso_pregestacional",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_actual": {
+          "name": "imc_actual",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_cat": {
+          "name": "imc_cat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dias_post_parto": {
+          "name": "dias_post_parto",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "retencion_post_parto": {
+          "name": "retencion_post_parto",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "retencion_post_parto_detalle": {
+          "name": "retencion_post_parto_detalle",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tasa_metabolica": {
+          "name": "tasa_metabolica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "factor_actividad_fisica": {
+          "name": "factor_actividad_fisica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descripcion_actividad_fisica": {
+          "name": "descripcion_actividad_fisica",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requerimiento_energia": {
+          "name": "requerimiento_energia",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "energia_extra_requerida": {
+          "name": "energia_extra_requerida",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requerimiento_energia_total": {
+          "name": "requerimiento_energia_total",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "lactante_info_base_user_info_id_unique": {
+          "name": "lactante_info_base_user_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_user_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.nino_info": {
+      "name": "nino_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_user_info_id": {
+          "name": "base_user_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sexo": {
+          "name": "sexo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso": {
+          "name": "peso",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "talla": {
+          "name": "talla",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "perimetro_cefalico": {
+          "name": "perimetro_cefalico",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "nino_info_base_user_info_id_unique": {
+          "name": "nino_info_base_user_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_user_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.nino_sano_info": {
+      "name": "nino_sano_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_info_id": {
+          "name": "base_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "alimentacion": {
+          "name": "alimentacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pt": {
+          "name": "pt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "te": {
+          "name": "te",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pce": {
+          "name": "pce",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "clasificacion_pt": {
+          "name": "clasificacion_pt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "clasificacion_te": {
+          "name": "clasificacion_te",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "clasificacion_pce": {
+          "name": "clasificacion_pce",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ganancia_peso_gr": {
+          "name": "ganancia_peso_gr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "calorias_1g_tejido": {
+          "name": "calorias_1g_tejido",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "veces_que_gane": {
+          "name": "veces_que_gane",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "calorias_crecimiento": {
+          "name": "calorias_crecimiento",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ajuste_deficit": {
+          "name": "ajuste_deficit",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kcal_totales": {
+          "name": "kcal_totales",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "leche_materna_exclusiva": {
+          "name": "leche_materna_exclusiva",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "formula_infantil": {
+          "name": "formula_infantil",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "leche_materna_y_formula": {
+          "name": "leche_materna_y_formula",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rango_118_anos": {
+          "name": "rango_118_anos",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "nino_sano_info_base_info_id_unique": {
+          "name": "nino_sano_info_base_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.rol": {
+      "name": "rol",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sobre_peso_info": {
+      "name": "sobre_peso_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "base_info_id": {
+          "name": "base_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_saludable": {
+          "name": "imc_saludable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_pregestacional_saludable": {
+          "name": "peso_pregestacional_saludable",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_semana": {
+          "name": "gramos_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_1_trimestre": {
+          "name": "ganancia_1_trimestre",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_gramos": {
+          "name": "ganancia_2y3_trimestre_gramos",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_kg": {
+          "name": "ganancia_2y3_trimestre_kg",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_total": {
+          "name": "ganancia_total",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_total_embarazo": {
+          "name": "peso_total_embarazo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_semana_40": {
+          "name": "imc_semana_40",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_peso_embarazo": {
+          "name": "ganancia_peso_embarazo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_peso_clasificacion": {
+          "name": "ganancia_peso_clasificacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_primer_trimestre": {
+          "name": "ganancia_primer_trimestre",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_2y3_trimestre_gsem": {
+          "name": "ganancia_2y3_trimestre_gsem",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_total_embarazo_titulo4": {
+          "name": "peso_total_embarazo_titulo4",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imc_semana_40_titulo4": {
+          "name": "imc_semana_40_titulo4",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ganancia_tipo": {
+          "name": "ganancia_tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gano": {
+          "name": "gano",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "debio_ganar": {
+          "name": "debio_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peso_a_ganar": {
+          "name": "peso_a_ganar",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "semanas_faltantes": {
+          "name": "semanas_faltantes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramos_por_semana": {
+          "name": "gramos_por_semana",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clasificacion_gramos": {
+          "name": "clasificacion_gramos",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tasa_metabolica": {
+          "name": "tasa_metabolica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "factor_actividad_fisica": {
+          "name": "factor_actividad_fisica",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requerimiento_energia_total": {
+          "name": "requerimiento_energia_total",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "adicion_gestante": {
+          "name": "adicion_gestante",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_energia_adicion": {
+          "name": "total_energia_adicion",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1g_dia": {
+          "name": "metodo_1g_dia",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1_kcal": {
+          "name": "metodo_1_kcal",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_1_amdr": {
+          "name": "metodo_1_amdr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2g_dia": {
+          "name": "metodo_2g_dia",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2_kcal": {
+          "name": "metodo_2_kcal",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metodo_2_amdr": {
+          "name": "metodo_2_amdr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "sobre_peso_info_base_info_id_unique": {
+          "name": "sobre_peso_info_base_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "base_info_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.usuario": {
+      "name": "usuario",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gimnasio_id": {
+          "name": "gimnasio_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rol_id": {
+          "name": "rol_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "name": "fecha_creacion",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "usuario_username_unique": {
+          "name": "usuario_username_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "username"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

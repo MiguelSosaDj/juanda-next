@@ -6,7 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+      "drizzle-introspect": "drizzle-kit introspect",
+  "drizzle-push": "drizzle-kit push",
+  "lint:fix": "next lint --fix",
+  "typecheck": "tsc --noEmit",
+  "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+  "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+  "db:generate": "drizzle-kit generate",
+  "db:push": "drizzle-kit push",
+  "db:migrate": "drizzle-kit migrate",
+  "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@vercel/kv": "^3.0.0",
@@ -27,6 +37,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^8.0.0",
     "drizzle-kit": "^0.31.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
