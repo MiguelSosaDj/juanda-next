@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import AlumnoForm from "@/components/AlumnoForm";
 
-type PageProps = {
-  params: {
-    alumnoId: string;
-  };
+interface PageProps {
+  params: { alumnoId: string }
 }
 
 async function getAlumno(alumnoId: string) {
@@ -14,13 +12,12 @@ async function getAlumno(alumnoId: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const alumno = await getAlumno(params.alumnoId);
   return {
-    title: `Editar Alumno - ${alumno.nombre}`,
+    title: `Editar Alumno ${params.alumnoId}`,
   };
 }
 
-export default async function AlumnoPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const data = await getAlumno(params.alumnoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

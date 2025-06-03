@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import BajoPesoForm from "@/components/BajoPesoForm";
 
-type PageProps = {
-  params: {
-    bajoPesoId: string;
-  };
+interface PageProps {
+  params: { bajoPesoId: string }
 }
 
 async function getBajoPesoInfo(bajoPesoId: string) {
@@ -14,13 +12,11 @@ async function getBajoPesoInfo(bajoPesoId: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const bajoPeso = await getBajoPesoInfo(params.bajoPesoId);
-  return {
-    title: `Editar Bajo Peso - ${bajoPeso.baseInfo.baseUserInfo.nombre}`,
-  };
+  const data = await getBajoPesoInfo(params.bajoPesoId);
+  return { title: `Editar Bajo Peso ${data.baseInfo.baseUserInfo.nombre}` };
 }
 
-export default async function BajoPesoPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const data = await getBajoPesoInfo(params.bajoPesoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

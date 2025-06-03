@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import SobrePesoForm from "@/components/SobrePesoForm";
 
-type PageProps = {
-  params: {
-    sobrePesoId: string;
-  };
+interface PageProps {
+  params: { sobrePesoId: string }
 }
 
 async function getSobrePesoInfo(sobrePesoId: string) {
@@ -14,13 +12,11 @@ async function getSobrePesoInfo(sobrePesoId: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const sobrePeso = await getSobrePesoInfo(params.sobrePesoId);
-  return {
-    title: `Editar Sobrepeso - ${sobrePeso.baseInfo.baseUserInfo.nombre}`,
-  };
+  const data = await getSobrePesoInfo(params.sobrePesoId);
+  return { title: `Editar Sobre Peso ${data.baseInfo.baseUserInfo.nombre}` };
 }
 
-export default async function SobrePesoPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const data = await getSobrePesoInfo(params.sobrePesoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

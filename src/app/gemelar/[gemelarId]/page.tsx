@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import GemelarForm from "@/components/GemelarForm";
 
-type PageProps = {
-  params: {
-    gemelarId: string;
-  };
+interface PageProps {
+  params: { gemelarId: string }
 }
 
 async function getGemelarInfo(gemelarId: string) {
@@ -14,13 +12,11 @@ async function getGemelarInfo(gemelarId: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const gemelar = await getGemelarInfo(params.gemelarId);
-  return {
-    title: `Editar Gemelar - ${gemelar.baseInfo.baseUserInfo.nombre}`,
-  };
+  const data = await getGemelarInfo(params.gemelarId);
+  return { title: `Editar Gemelar ${data.baseInfo.baseUserInfo.nombre}` };
 }
 
-export default async function GemelarPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const data = await getGemelarInfo(params.gemelarId);
   return (
     <div className="max-w-5xl mx-auto py-10">

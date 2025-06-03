@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import NinoSanoForm from "@/components/NinoSanoForm";
 
-type PageProps = {
-  params: {
-    ninoId: string;
-  };
+interface PageProps {
+  params: { ninoId: string }
 }
 
 async function getNinoInfo(ninoId: string) {
@@ -14,13 +12,11 @@ async function getNinoInfo(ninoId: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const nino = await getNinoInfo(params.ninoId);
-  return {
-    title: `Editar Niño Sano - ${nino.baseInfo.baseUserInfo.nombre}`,
-  };
+  const data = await getNinoInfo(params.ninoId);
+  return { title: `Editar Niño Sano ${data.baseInfo.baseUserInfo.nombre}` };
 }
 
-export default async function NinoSanoPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const data = await getNinoInfo(params.ninoId);
   return (
     <div className="max-w-5xl mx-auto py-10">
