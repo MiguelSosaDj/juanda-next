@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
 import LactanteForm from "@/components/LactanteForm";
 
-type Props = {
+type PageProps = {
   params: {
     lactanteId: string;
-  }
+  };
 }
 
 async function getLactanteInfo(lactanteId: string) {
@@ -12,7 +13,14 @@ async function getLactanteInfo(lactanteId: string) {
   return res.json();
 }
 
-export default async function LactantePage({ params }: Props) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const lactante = await getLactanteInfo(params.lactanteId);
+  return {
+    title: `Editar Lactante - ${lactante.baseUserInfo.nombre}`,
+  };
+}
+
+export default async function LactantePage({ params }: PageProps) {
   const data = await getLactanteInfo(params.lactanteId);
   return (
     <div className="max-w-5xl mx-auto py-10">

@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
 import GestanteForm from "@/components/GestanteForm";
 
-type Props = {
+type PageProps = {
   params: {
     gestanteId: string;
-  }
+  };
 }
 
 async function getGestanteInfo(gestanteId: string) {
@@ -12,7 +13,14 @@ async function getGestanteInfo(gestanteId: string) {
   return res.json();
 }
 
-export default async function GestantePage({ params }: Props) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const gestante = await getGestanteInfo(params.gestanteId);
+  return {
+    title: `Editar Gestante - ${gestante.baseUserInfo.nombre}`,
+  };
+}
+
+export default async function GestantePage({ params }: PageProps) {
   const data = await getGestanteInfo(params.gestanteId);
   return (
     <div className="max-w-5xl mx-auto py-10">

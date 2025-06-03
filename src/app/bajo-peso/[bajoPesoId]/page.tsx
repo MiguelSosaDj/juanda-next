@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
 import BajoPesoForm from "@/components/BajoPesoForm";
 
-type Props = {
+type PageProps = {
   params: {
     bajoPesoId: string;
-  }
+  };
 }
 
 async function getBajoPesoInfo(bajoPesoId: string) {
@@ -12,7 +13,14 @@ async function getBajoPesoInfo(bajoPesoId: string) {
   return res.json();
 }
 
-export default async function BajoPesoPage({ params }: Props) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const bajoPeso = await getBajoPesoInfo(params.bajoPesoId);
+  return {
+    title: `Editar Bajo Peso - ${bajoPeso.baseInfo.baseUserInfo.nombre}`,
+  };
+}
+
+export default async function BajoPesoPage({ params }: PageProps) {
   const data = await getBajoPesoInfo(params.bajoPesoId);
   return (
     <div className="max-w-5xl mx-auto py-10">
