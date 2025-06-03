@@ -1,4 +1,15 @@
+import { type Metadata } from 'next'
 import AlumnoForm from "@/components/AlumnoForm";
+
+export const metadata: Metadata = {
+  title: 'Editar Alumno',
+  description: 'Formulario para editar los datos del alumno',
+};
+
+// ✅ Eliminamos el problema de tipado
+interface PageProps {
+  params: { alumnoId: string }
+}
 
 async function getAlumno(alumnoId: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/alumno/${alumnoId}`, { cache: 'no-store' });
@@ -6,7 +17,7 @@ async function getAlumno(alumnoId: string) {
   return res.json();
 }
 
-export default async function AlumnoPage({ params }: { params: { alumnoId: string } }) {
+export default async function AlumnoPage({ params }: PageProps) {
   const data = await getAlumno(params.alumnoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

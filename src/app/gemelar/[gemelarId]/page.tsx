@@ -1,4 +1,14 @@
+import { type Metadata } from 'next'
 import GemelarForm from "@/components/GemelarForm";
+
+export const metadata: Metadata = {
+  title: 'Editar Gemelar',
+  description: 'Formulario para editar los datos de gemelar',
+};
+
+interface PageProps {
+  params: { gemelarId: string }
+}
 
 async function getGemelarInfo(gemelarId: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemelar/${gemelarId}`, {
@@ -12,7 +22,7 @@ async function getGemelarInfo(gemelarId: string) {
   return res.json();
 }
 
-export default async function GemelarPage({ params }: { params: { gemelarId: string } }) {
+export default async function GemelarPage({ params }: PageProps) {
   const data = await getGemelarInfo(params.gemelarId);
   return (
     <div className="max-w-5xl mx-auto py-10">

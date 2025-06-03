@@ -1,4 +1,14 @@
+import { type Metadata } from 'next'
 import BajoPesoForm from "@/components/BajoPesoForm";
+
+export const metadata: Metadata = {
+  title: 'Editar Bajo Peso',
+  description: 'Formulario para editar los datos de bajo peso',
+};
+
+interface PageProps {
+  params: { bajoPesoId: string }
+}
 
 async function getBajoPesoInfo(bajoPesoId: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/bajo-peso/${bajoPesoId}`, {
@@ -12,7 +22,7 @@ async function getBajoPesoInfo(bajoPesoId: string) {
   return res.json();
 }
 
-export default async function BajoPesoPage({ params }: { params: { bajoPesoId: string } }) {
+export default async function BajoPesoPage({ params }: PageProps) {
   const data = await getBajoPesoInfo(params.bajoPesoId);
   return (
     <div className="max-w-5xl mx-auto py-10">
