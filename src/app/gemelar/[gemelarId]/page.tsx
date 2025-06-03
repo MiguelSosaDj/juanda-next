@@ -1,28 +1,23 @@
-import { type Metadata } from 'next'
+import { type Metadata } from 'next';
 import GemelarForm from "@/components/GemelarForm";
 
 export const metadata: Metadata = {
   title: 'Editar Gemelar',
-  description: 'Formulario para editar los datos de gemelar',
+  description: 'Formulario para editar gemelar',
 };
 
 interface PageProps {
-  params: { gemelarId: string }
+  params: { gemelarId: string };
 }
 
 async function getGemelarInfo(gemelarId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemelar/${gemelarId}`, {
-    cache: 'no-store'
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemelar/${gemelarId}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch data');
   return res.json();
 }
 
-export default async function GemelarPage({ params }: PageProps) {
+export default async function GemelarPage(props: PageProps) {
+  const { params } = await Promise.resolve(props);
   const data = await getGemelarInfo(params.gemelarId);
   return (
     <div className="max-w-5xl mx-auto py-10">

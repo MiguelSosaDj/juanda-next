@@ -1,4 +1,4 @@
-import { type Metadata } from 'next'
+import { type Metadata } from 'next';
 import AlumnoForm from "@/components/AlumnoForm";
 
 export const metadata: Metadata = {
@@ -6,9 +6,8 @@ export const metadata: Metadata = {
   description: 'Formulario para editar los datos del alumno',
 };
 
-// ✅ Eliminamos el problema de tipado
 interface PageProps {
-  params: { alumnoId: string }
+  params: { alumnoId: string };
 }
 
 async function getAlumno(alumnoId: string) {
@@ -17,7 +16,8 @@ async function getAlumno(alumnoId: string) {
   return res.json();
 }
 
-export default async function AlumnoPage({ params }: PageProps) {
+export default async function AlumnoPage(props: PageProps) {
+  const { params } = await Promise.resolve(props);
   const data = await getAlumno(params.alumnoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

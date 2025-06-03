@@ -1,18 +1,23 @@
+import { type Metadata } from 'next';
 import GestanteForm from "@/components/GestanteForm";
 
+export const metadata: Metadata = {
+  title: 'Editar Gestante',
+  description: 'Formulario para editar gestante',
+};
+
+interface PageProps {
+  params: { gestanteId: string };
+}
+
 async function getGestanteInfo(gestanteId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gestante/${gestanteId}`, {
-    cache: 'no-store'
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gestante/${gestanteId}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch data');
   return res.json();
 }
 
-export default async function GestantePage({ params }: { params: { gestanteId: string } }) {
+export default async function GestantePage(props: PageProps) {
+  const { params } = await Promise.resolve(props);
   const data = await getGestanteInfo(params.gestanteId);
   return (
     <div className="max-w-5xl mx-auto py-10">
