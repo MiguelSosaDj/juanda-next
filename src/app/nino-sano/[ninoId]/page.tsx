@@ -1,13 +1,9 @@
-import { type Metadata } from 'next';
 import NinoSanoForm from "@/components/NinoSanoForm";
 
-export const metadata: Metadata = {
-  title: 'Editar Niño Sano',
-  description: 'Formulario para editar niño sano',
-};
-
-interface PageProps {
-  params: { ninoId: string };
+type Props = {
+  params: {
+    ninoId: string;
+  }
 }
 
 async function getNinoInfo(ninoId: string) {
@@ -16,8 +12,7 @@ async function getNinoInfo(ninoId: string) {
   return res.json();
 }
 
-export default async function NinoSanoPage(props: PageProps) {
-  const { params } = await Promise.resolve(props);
+export default async function NinoSanoPage({ params }: Props) {
   const data = await getNinoInfo(params.ninoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

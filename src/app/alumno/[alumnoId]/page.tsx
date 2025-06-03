@@ -1,13 +1,9 @@
-import { type Metadata } from 'next';
 import AlumnoForm from "@/components/AlumnoForm";
 
-export const metadata: Metadata = {
-  title: 'Editar Alumno',
-  description: 'Formulario para editar los datos del alumno',
-};
-
-interface PageProps {
-  params: { alumnoId: string };
+type Props = {
+  params: {
+    alumnoId: string;
+  }
 }
 
 async function getAlumno(alumnoId: string) {
@@ -16,8 +12,7 @@ async function getAlumno(alumnoId: string) {
   return res.json();
 }
 
-export default async function AlumnoPage(props: PageProps) {
-  const { params } = await Promise.resolve(props);
+export default async function AlumnoPage({ params }: Props) {
   const data = await getAlumno(params.alumnoId);
   return (
     <div className="max-w-5xl mx-auto py-10">

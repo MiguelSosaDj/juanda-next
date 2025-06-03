@@ -1,13 +1,9 @@
-import { type Metadata } from 'next';
 import BajoPesoForm from "@/components/BajoPesoForm";
 
-export const metadata: Metadata = {
-  title: 'Editar Bajo Peso',
-  description: 'Formulario para editar bajo peso',
-};
-
-interface PageProps {
-  params: { bajoPesoId: string };
+type Props = {
+  params: {
+    bajoPesoId: string;
+  }
 }
 
 async function getBajoPesoInfo(bajoPesoId: string) {
@@ -16,8 +12,7 @@ async function getBajoPesoInfo(bajoPesoId: string) {
   return res.json();
 }
 
-export default async function BajoPesoPage(props: PageProps) {
-  const { params } = await Promise.resolve(props);
+export default async function BajoPesoPage({ params }: Props) {
   const data = await getBajoPesoInfo(params.bajoPesoId);
   return (
     <div className="max-w-5xl mx-auto py-10">
