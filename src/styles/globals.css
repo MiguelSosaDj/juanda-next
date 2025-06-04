@@ -10,7 +10,6 @@
     --font-mono: var(--font-geist-mono);
   }
 
-  
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -22,21 +21,36 @@
 }
 
 @layer components {
-  input,
-  select,
-  textarea {
-    @apply bg-gray-800 border-gray-700 text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500;
+  /* FORMULARIOS */
+  input, select, textarea {
+    @apply bg-gray-800 border border-gray-600 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition;
   }
 
+  /* BOTONES */
   button {
-    @apply rounded-lg px-4 py-2 font-medium transition-colors;
+    @apply rounded-lg font-semibold py-3 px-6 transition transform active:scale-95 duration-300;
   }
 
   .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700;
+    @apply bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-white shadow-lg hover:brightness-110;
   }
 
   .btn-secondary {
     @apply bg-gray-700 text-white hover:bg-gray-600;
   }
+
+  /* TARJETAS */
+  .card {
+    @apply bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-600 transition-transform duration-300 hover:scale-105;
+  }
+}
+
+/* GLOBAL DARK BACKGROUND FULL */
+body {
+  @apply bg-gradient-to-br from-gray-900 to-black text-white min-h-screen;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  @apply text-white font-extrabold tracking-tight drop-shadow-lg;
 }
