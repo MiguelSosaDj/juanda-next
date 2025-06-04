@@ -5,7 +5,7 @@ interface ActionLog {
   action: ActionType;
   entityType: string;
   entityId?: string;
-  details?: Record<string, any>;
+  details?: Record<string, string | number | boolean | null>;
   timestamp: Date;
 }
 
@@ -27,7 +27,7 @@ class ActionLogger {
     action: ActionType,
     entityType: string,
     entityId?: string,
-    details?: Record<string, any>
+    details?: Record<string, string | number | boolean | null>
   ) {
     const logEntry: ActionLog = {
       userId,

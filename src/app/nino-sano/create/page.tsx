@@ -11,7 +11,7 @@ export default function CreateNinoSanoPage() {
     <div className="max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Crear Registro Niño Sano</h1>
       <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
-        <NinoSanoForm />
+        <NinoSanoForm data={{ id: 0, alimentacion: '' /* Add appropriate values for id and alimentacion */ }} />
       </div>
     </div>
   );

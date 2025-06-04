@@ -87,11 +87,7 @@ export function calculateNutritionalNeeds(
   return result;
 }
 
-export function generateMealPlan(
-  needs: NutritionalNeeds,
-  restrictions: string[] = [],
-  preferences: string[] = []
-): MealPlan {
+export function generateMealPlan(): MealPlan {
   // This is a placeholder implementation
   // In a real application, you would have a database of food items
   // and implement an algorithm to create balanced meal plans

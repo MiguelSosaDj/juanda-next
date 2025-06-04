@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import {  useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,7 +13,7 @@ export default function RouteInterceptor({ children, onClose }: RouteInterceptor
   const overlay = useRef<HTMLDivElement>(null);
   const wrapper = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const pathname = usePathname();
+  // Removed unused pathname variable
 
   const onDismiss = useCallback(() => {
     if (onClose) {

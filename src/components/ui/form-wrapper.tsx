@@ -3,22 +3,22 @@
 import { useFormValidation } from '@/hooks/use-form-validation';
 import { useNotifications } from './notifications';
 import { ValidationRules } from '@/lib/validation';
-import { FormButton } from './form-button';
+import FormButton from './form-button';
 import { useState } from 'react';
 
-interface FormWrapperProps<T extends Record<string, any>> {
+interface FormWrapperProps<T extends Record<string, unknown>> {
   initialValues: T;
   validationRules: ValidationRules;
   onSubmit: (values: T) => Promise<void>;
   children: (props: {
     values: T;
     errors: Record<string, string>;
-    handleChange: (name: keyof T, value: any) => void;
+    handleChange: (name: keyof T, value: T[keyof T]) => void;
   }) => React.ReactNode;
   submitLabel?: string;
 }
 
-export default function FormWrapper<T extends Record<string, any>>({
+export default function FormWrapper<T extends Record<string, unknown>>({
   initialValues,
   validationRules,
   onSubmit,
@@ -47,8 +47,9 @@ export default function FormWrapper<T extends Record<string, any>>({
       await onSubmit(values);
       showNotification('success', 'Datos guardados exitosamente');
       resetForm();
-    } catch (error: any) {
-      showNotification('error', error.message || 'Error al guardar los datos');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Error al guardar los datos';
+      showNotification('error', errorMessage);
     } finally {
       setIsSubmitting(false);
     }

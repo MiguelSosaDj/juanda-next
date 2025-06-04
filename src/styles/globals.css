@@ -6,19 +6,21 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
   }
+
+  body {
+    @apply antialiased text-foreground font-sans bg-white dark:bg-gray-900;
+  }
 }
 
 @layer components {
-  body {
-    @apply antialiased;
-  }
-  
   input,
   select,
   textarea {

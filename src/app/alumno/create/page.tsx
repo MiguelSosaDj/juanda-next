@@ -11,7 +11,7 @@ export default function CreateAlumnoPage() {
     <div className="max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Crear Nuevo Alumno</h1>
       <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
-        <AlumnoForm />
+        <AlumnoForm data={{ id: 0, nombre: '', telefono: '', direccion: '' }} />
       </div>
     </div>
   );

@@ -5,14 +5,14 @@ export type ValidationRule = {
   maxLength?: number;
   min?: number;
   max?: number;
-  custom?: (value: any) => boolean;
+  custom?: (value: unknown) => boolean;
 };
 
 export type ValidationRules = Record<string, ValidationRule>;
 
 export function validateField(
   name: string,
-  value: any,
+  value: unknown,
   rules?: ValidationRule
 ): string | null {
   if (!rules) return null;
@@ -21,15 +21,15 @@ export function validateField(
     return 'Este campo es requerido';
   }
 
-  if (rules.pattern && !rules.pattern.test(value)) {
+  if (rules.pattern && typeof value === 'string' && !rules.pattern.test(value)) {
     return 'Formato inválido';
   }
 
-  if (rules.minLength && value.length < rules.minLength) {
+  if (rules.minLength && typeof value === 'string' && value.length < rules.minLength) {
     return `Mínimo ${rules.minLength} caracteres`;
   }
 
-  if (rules.maxLength && value.length > rules.maxLength) {
+  if (rules.maxLength && typeof value === 'string' && value.length > rules.maxLength) {
     return `Máximo ${rules.maxLength} caracteres`;
   }
 
@@ -49,7 +49,7 @@ export function validateField(
 }
 
 export function validateForm(
-  values: Record<string, any>,
+  values: Record<string, unknown>,
   rules: ValidationRules
 ): Record<string, string> {
   const errors: Record<string, string> = {};

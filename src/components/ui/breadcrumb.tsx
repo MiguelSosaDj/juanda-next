@@ -17,7 +17,7 @@ const pathNames: Record<string, string> = {
 
 export default function Breadcrumb() {
   const pathname = usePathname();
-  const paths = pathname.split('/').filter(Boolean);
+  const paths = pathname ? pathname.split('/').filter(Boolean) : [];
 
   const breadcrumbs = paths.map((path, index) => {
     const href = `/${paths.slice(0, index + 1).join('/')}`;
@@ -38,7 +38,7 @@ export default function Breadcrumb() {
             <HomeIcon className="h-4 w-4" />
           </Link>
         </li>
-        {breadcrumbs.map(({ href, label, isLast }, index) => (
+        {breadcrumbs.map(({ href, label, isLast }) => (
           <li key={href} className="flex items-center">
             <ChevronRightIcon className="h-4 w-4 text-gray-600 mx-1" />
             {isLast ? (

@@ -1,18 +1,8 @@
 'use client';
 
-import { useMemo } from 'react';
 
-interface NutritionalData {
-  weight: number;
-  height: number;
-  age: number;
-  gender: 'male' | 'female';
-}
+// Removed unused NutritionalData interface
 
-interface PregnancyData extends NutritionalData {
-  gestationalWeek: number;
-  prePregnancyWeight: number;
-}
 
 export function useCalculations() {
   const calculateBMI = (weight: number, height: number) => {
@@ -69,7 +59,7 @@ export function useCalculations() {
     // Example percentile calculation (simplified)
     const heightForAge = (height / medianHeightForAge(age, gender)) * 100;
     const weightForAge = (weight / medianWeightForAge(age, gender)) * 100;
-    const bmiForAge = (bmi / medianBmiForAge(age, gender)) * 100;
+    const bmiForAge = (bmi / medianBmiForAge(age)) * 100;
 
     return {
       heightPercentile: heightForAge,
@@ -88,7 +78,7 @@ export function useCalculations() {
     return gender === 'male' ? 9 + (age * 2) : 8.5 + (age * 2);
   };
 
-  const medianBmiForAge = (age: number, gender: 'male' | 'female') => {
+  const medianBmiForAge = (age: number) => {
     return 15.5 + (age * 0.1);
   };
 
