@@ -6,6 +6,9 @@ const nextConfig = {
     // para resolver el problema actual
     ignoreBuildErrors: true,
   },
+  experimental: {
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig
