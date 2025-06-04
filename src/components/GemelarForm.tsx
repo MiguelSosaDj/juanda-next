@@ -4,25 +4,40 @@ import { useState } from "react";
 
 type GemelarInfo = {
   id: number;
+  baseInfoId: number;
   gramosSemana: number;
   ganancia1Trimestre: number;
   ganancia2y3TrimestreGramos: number;
   ganancia2y3TrimestreKg: number;
   pesoTotalEmbarazo: number;
   imcSemana40: number;
-  gano: number;
-  debioGanar: number;
-  pesoAGanar: number;
-  semanasFaltantes: number;
-  gramosPorSemana: number;
   clasificacionGramos: string;
+  imcPregestacional?: number;
+  pesoPregestacional?: number;
+  gananciaRecomendada?: number;
+  gananciaMinima?: number;
+  gananciaMaxima?: number;
+  pesoActual?: number;
+  semanasGestacion?: number;
+  gananciaActual?: number;
+  clasificacionGanancia?: string;
+  gananciaSemanal?: number;
+  pesoObjetivo?: number;
+  semanasFaltantes?: number;
+  gramosPorSemana?: number;
+  requerimientoEnergetico?: number;
+  proteinasRecomendadas?: number;
+  hidratosRecomendados?: number;
+  grasasRecomendadas?: number;
 };
 
-export default function GemelarForm({ data }: { data: GemelarInfo }) {
+export default function GemelarForm({ data, gemelarId }: { data: GemelarInfo; gemelarId: string }) {
   const [formData, setFormData] = useState(data);
   const [loading, setLoading] = useState(false);
+  void gemelarId; // This is to ensure the gemelarId is used in the future if needed
+  // This is to ensure the gemelarId is used in the future if needed
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,

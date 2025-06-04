@@ -38,9 +38,10 @@ type BajoPesoInfo = {
   metodo2Amdr: number;
 };
 
-export default function BajoPesoForm({ data }: { data: BajoPesoInfo }) {
+export default function BajoPesoForm({ data, bajoPesoId }: { data: BajoPesoInfo; bajoPesoId: string }) {
   const [formData, setFormData] = useState(data);
   const [loading, setLoading] = useState(false);
+  void bajoPesoId; // This is to ensure the bajoPesoId is used in the future if needed
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

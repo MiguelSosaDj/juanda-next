@@ -1,27 +1,54 @@
-import { Metadata } from 'next';
-import GemelarForm from "@/components/GemelarForm";
+import type { Metadata } from 'next';
+import GemelarForm from '@/components/GemelarForm';
+import { fetchGemelarInfo } from '@/lib/api';
 
-interface PageProps {
+type GemelarInfo = {
+  id: number;
+  baseInfoId: number;
+  gramosSemana: number;
+  ganancia1Trimestre: number;
+  ganancia2y3TrimestreGramos: number;
+  ganancia2y3TrimestreKg: number;
+  pesoTotalEmbarazo: number;
+  imcSemana40: number;
+  clasificacionGramos: string;
+  imcPregestacional?: number;
+  pesoPregestacional?: number;
+  gananciaRecomendada?: number;
+  gananciaMinima?: number;
+  gananciaMaxima?: number;
+  pesoActual?: number;
+  semanasGestacion?: number;
+  gananciaActual?: number;
+  clasificacionGanancia?: string;
+  gananciaSemanal?: number;
+  pesoObjetivo?: number;
+  semanasFaltantes?: number;
+  gramosPorSemana?: number;
+  requerimientoEnergetico?: number;
+  proteinasRecomendadas?: number;
+  hidratosRecomendados?: number;
+  grasasRecomendadas?: number;
+};
+
+type Props = {
   params: { gemelarId: string }
-}
+};
 
-async function getGemelarInfo(gemelarId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemelar/${gemelarId}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch data');
-  return res.json();
-}
+export const metadata: Metadata = {
+  title: 'Editar Registro Gemelar',
+  description: 'Editar información del caso gemelar',
+};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const data = await getGemelarInfo(params.gemelarId);
-  return { title: `Editar Gemelar ${data.baseInfo.baseUserInfo.nombre}` };
-}
-
-export default async function Page({ params }: PageProps) {
-  const data = await getGemelarInfo(params.gemelarId);
+export default async function GemelarPage({ params }: Props) {
+  const gemelarData: GemelarInfo = await fetchGemelarInfo(params.gemelarId);
+  
   return (
-    <div className="max-w-5xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-4">Editar Gemelar: {data.baseInfo.baseUserInfo.nombre}</h1>
-      <GemelarForm data={data} />
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Editar Registro Gemelar</h1>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
+        <GemelarForm data={gemelarData} gemelarId={params.gemelarId} />
+      </div>
     </div>
   );
 }

@@ -13,7 +13,12 @@ type GestanteInfo = {
   imcPregestacionalCat: string;
 };
 
-export default function GestanteForm({ data }: { data: GestanteInfo }) {
+interface GestanteFormProps {
+  data: GestanteInfo;
+  gestanteId?: string;
+}
+
+export default function GestanteForm({ data }: GestanteFormProps) {
   const [formData, setFormData] = useState(data);
   const [loading, setLoading] = useState(false);
 

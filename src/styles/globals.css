@@ -1,2 +1,39 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer components {
+  body {
+    @apply antialiased;
+  }
+  
+  input,
+  select,
+  textarea {
+    @apply bg-gray-800 border-gray-700 text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500;
+  }
+
+  button {
+    @apply rounded-lg px-4 py-2 font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-700 text-white hover:bg-gray-600;
+  }
+}

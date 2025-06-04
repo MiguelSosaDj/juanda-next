@@ -1,28 +1,22 @@
-import { Metadata } from 'next';
-import AlumnoForm from "@/components/AlumnoForm";
+import type { Metadata } from 'next';
+import AlumnoForm from '@/components/AlumnoForm';
 
-interface PageProps {
+type Props = {
   params: { alumnoId: string }
-}
+};
 
-async function getAlumno(alumnoId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/alumno/${alumnoId}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch data');
-  return res.json();
-}
+export const metadata: Metadata = {
+  title: 'Editar Alumno',
+  description: 'Editar información del alumno',
+};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  return {
-    title: `Editar Alumno ${params.alumnoId}`,
-  };
-}
-
-export default async function Page({ params }: PageProps) {
-  const data = await getAlumno(params.alumnoId);
+export default async function AlumnoPage({ params }: Props) {
   return (
-    <div className="max-w-5xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-4">Editar Alumno: {data.nombre}</h1>
-      <AlumnoForm data={data} />
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Editar Alumno</h1>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
+        <AlumnoForm alumnoId={params.alumnoId} />
+      </div>
     </div>
   );
 }

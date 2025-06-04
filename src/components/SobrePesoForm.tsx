@@ -7,7 +7,12 @@ type SobrePesoInfo = {
   id: number;
 };
 
-export default function SobrePesoForm({ data }: { data: SobrePesoInfo }) {
+interface SobrePesoFormProps {
+  data: SobrePesoInfo;
+  sobrePesoId?: string;
+}
+
+export default function SobrePesoForm({ data }: SobrePesoFormProps) {
   const [formData, setFormData] = useState<SobrePesoInfo>(data);
   const [loading, setLoading] = useState(false);
 

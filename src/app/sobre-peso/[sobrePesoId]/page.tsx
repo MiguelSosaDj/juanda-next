@@ -1,27 +1,25 @@
-import { Metadata } from 'next';
-import SobrePesoForm from "@/components/SobrePesoForm";
+import type { Metadata } from 'next';
+import SobrePesoForm from '@/components/SobrePesoForm';
+import { fetchSobrePesoInfo } from '@/lib/api';
 
-interface PageProps {
+type Props = {
   params: { sobrePesoId: string }
-}
+};
 
-async function getSobrePesoInfo(sobrePesoId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/sobre-peso/${sobrePesoId}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch data');
-  return res.json();
-}
+export const metadata: Metadata = {
+  title: 'Editar Registro Sobre Peso',
+  description: 'Editar información del paciente con sobre peso',
+};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const data = await getSobrePesoInfo(params.sobrePesoId);
-  return { title: `Editar Sobre Peso ${data.baseInfo.baseUserInfo.nombre}` };
-}
-
-export default async function Page({ params }: PageProps) {
-  const data = await getSobrePesoInfo(params.sobrePesoId);
+export default async function SobrePesoPage({ params }: Props) {
+  const data = await fetchSobrePesoInfo(params.sobrePesoId);
+  
   return (
-    <div className="max-w-5xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-4">Editar Sobrepeso: {data.baseInfo.baseUserInfo.nombre}</h1>
-      <SobrePesoForm data={data} />
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Editar Registro Sobrepeso</h1>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
+        <SobrePesoForm data={data} sobrePesoId={params.sobrePesoId} />
+      </div>
     </div>
   );
 }

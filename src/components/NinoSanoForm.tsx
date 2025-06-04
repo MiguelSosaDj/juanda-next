@@ -13,7 +13,12 @@ type NinoSanoInfo = {
   clasificacionPce?: string;
 };
 
-export default function NinoSanoForm({ data }: { data: NinoSanoInfo }) {
+interface NinoSanoFormProps {
+  data: NinoSanoInfo;
+  ninoId?: string;
+}
+
+export default function NinoSanoForm({ data }: NinoSanoFormProps) {
   const [formData, setFormData] = useState(data);
   const [loading, setLoading] = useState(false);
 

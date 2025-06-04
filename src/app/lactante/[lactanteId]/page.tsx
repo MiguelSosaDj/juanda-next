@@ -1,27 +1,25 @@
-import { Metadata } from 'next';
-import LactanteForm from "@/components/LactanteForm";
+import type { Metadata } from 'next';
+import LactanteForm from '@/components/LactanteForm';
+import { fetchLactanteInfo } from '@/lib/api';
 
-interface PageProps {
+type Props = {
   params: { lactanteId: string }
-}
+};
 
-async function getLactanteInfo(lactanteId: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/lactante/${lactanteId}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch data');
-  return res.json();
-}
+export const metadata: Metadata = {
+  title: 'Editar Registro Lactante',
+  description: 'Editar información del lactante',
+};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const data = await getLactanteInfo(params.lactanteId);
-  return { title: `Editar Lactante ${data.baseUserInfo.nombre}` };
-}
-
-export default async function Page({ params }: PageProps) {
-  const data = await getLactanteInfo(params.lactanteId);
+export default async function LactantePage({ params }: Props) {
+  const data = await fetchLactanteInfo(params.lactanteId);
+  
   return (
-    <div className="max-w-5xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-4">Editar Lactante: {data.baseUserInfo.nombre}</h1>
-      <LactanteForm data={data} />
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Editar Registro Lactante</h1>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
+        <LactanteForm data={data} lactanteId={params.lactanteId} />
+      </div>
     </div>
   );
 }

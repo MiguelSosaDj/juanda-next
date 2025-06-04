@@ -19,7 +19,12 @@ type LactanteInfo = {
   requerimientoEnergiaTotal: number;
 };
 
-export default function LactanteForm({ data }: { data: LactanteInfo }) {
+interface LactanteFormProps {
+  data: LactanteInfo;
+  lactanteId?: string;
+}
+
+export default function LactanteForm({ data }: LactanteFormProps) {
   const [formData, setFormData] = useState(data);
   const [loading, setLoading] = useState(false);
 

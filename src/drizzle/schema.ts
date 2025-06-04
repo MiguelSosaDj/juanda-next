@@ -200,7 +200,6 @@ export const sobrePesoInfo = pgTable("sobre_peso_info", {
   metodo2GDia: doublePrecision("metodo_2g_dia").notNull(),
   metodo2Kcal: doublePrecision("metodo_2_kcal").notNull(),
   metodo2Amdr: doublePrecision("metodo_2_amdr").notNull(),
-  fechaCreacion: timestamp("fecha_creacion").defaultNow(),
 });
 
 // GEMELARINFO
@@ -219,4 +218,27 @@ export const gemelarInfo = pgTable("gemelar_info", {
   semanasFaltantes: integer("semanas_faltantes").notNull(),
   gramosPorSemana: doublePrecision("gramos_por_semana").notNull(),
   clasificacionGramos: text("clasificacion_gramos").notNull(),
+});
+
+// GEMELAR
+export const gemelar = pgTable("gemelar", {
+  id: serial("id").primaryKey(),
+  imcPregestacional: doublePrecision("imc_pregestacional").notNull(),
+  pesoPregestacional: doublePrecision("peso_pregestacional").notNull(),
+  gananciaRecomendada: doublePrecision("ganancia_recomendada").notNull(),
+  gananciaMinima: doublePrecision("ganancia_minima").notNull(),
+  gananciaMaxima: doublePrecision("ganancia_maxima").notNull(),
+  pesoActual: doublePrecision("peso_actual").notNull(),
+  semanasGestacion: integer("semanas_gestacion").notNull(),
+  gananciaActual: doublePrecision("ganancia_actual").notNull(),
+  clasificacionGanancia: text("clasificacion_ganancia").notNull(),
+  gananciaSemanal: doublePrecision("ganancia_semanal").notNull(),
+  pesoObjetivo: doublePrecision("peso_objetivo").notNull(),
+  semanasFaltantes: integer("semanas_faltantes").notNull(),
+  gramosPorSemana: doublePrecision("gramos_por_semana").notNull(),
+  requerimientoEnergetico: doublePrecision("requerimiento_energetico").notNull(),
+  proteinasRecomendadas: doublePrecision("proteinas_recomendadas").notNull(),
+  hidratosRecomendados: doublePrecision("hidratos_recomendados").notNull(),
+  grasasRecomendadas: doublePrecision("grasas_recomendadas").notNull(),
+  fechaCreacion: timestamp("fecha_creacion").defaultNow(),
 });
